@@ -1,3 +1,8 @@
 *~
 *.o
 *.swap
+# Binary executables
+obo_example
+stack_example
+heap_example
+a.out

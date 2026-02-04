@@ -5,7 +5,9 @@ void vulnerable_function(const char *input) {
     char buffer[16];
 
     // Looks safe, but is subtly wrong
-    strncpy(buffer, input, sizeof(buffer));
+    // Ensure null-termination in all cases
+    strncpy(buffer, input, sizeof(buffer) - 1);
+    buffer[sizeof(buffer) - 1] = '\0';
 
     // Assumes buffer is always null-terminated
     printf("Input: %s\n", buffer);
